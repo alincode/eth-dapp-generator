@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Hello World DApp</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body class="container">
+    <h1>Hello World DApp</h1>
+    <input type="text" id="name" /> <a href="#" id="set" class="btn btn-primary">set name</a>
+    <div id="result"></div>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js"></script>
+    <script>
+      async function web3Init() {
+        if (ethereum) {
+          window.web3 = new Web3(ethereum);
+          try {
+            // console.log('ethereum.enable()');
+            const accounts = await ethereum.enable();
+            web3.eth.defaultAccount = accounts[0];
+          } catch (error) {}
+        } else if (web3) {
+          console.log('load web3.currentProvider');
+          window.web3 = new Web3(web3.currentProvider);
+        } else {
+          console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+        }
+      }
+
+      web3Init();
+
+      abi = JSON.parse(
+        `[
+        {
+        "constant": false,
+        "inputs": [
+        {
+        "name": "_name",
+        "type": "string"
+        }
+        ],
+        "name": "setName",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+        },
+        {
+        "constant": true,
+        "inputs": [],
+        "name": "getName",
+        "outputs": [
+        {
+        "name": "",
+        "type": "string"
+        }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+        }
+        ]`
+      )
+      const contractAddress = '0x829af434f0a8934a431338c1a532abdc8d2c7dfc';
+      window.myContract = new web3.eth.Contract(abi, contractAddress);
+
+      // ===== DOM Event =====
+
+      async function setName(event) {
+        console.log('setName');
+        // event.preventDefault();
+        let inputData = document.getElementById("name").value;
+        let data = await myContract.methods.setName(inputData).send({
+          from: web3.eth.defaultAccount
+        }).then(values => {
+          // console.log(values);
+          render();
+        });
+      }
+
+      document.getElementById("set").addEventListener("click", setName);
+
+      // ===== load =====
+
+      async function getName() {
+        let returnValue = await myContract.methods.getName().call();
+        // console.log('returnValue:', returnValue);
+        document.getElementById("result").innerHTML = returnValue;
+      }
+
+      function render() {
+        getName();
+      }
+
+      window.onload = function () {
+        render();
+      };
+    </script>
+  </body>
+
+</html>
+
+<!-- 
+pragma solidity ^0.4.0;
+
+contract HelloWorld {
+  string name = "alincode";
+
+  function setName(string _name) public {
+    name = _name;
+  }
+
+  function getName() public view returns (string) {
+    return name;
+  }
+}
+-->
