@@ -51,11 +51,11 @@ const ABI = [{
   }
 ]
 
-const constractAddress = '0x353df9459c6d62d294530484bdbd6b9b45fd1c98';
+const CONTRACT_ADDRESS = '0x353df9459c6d62d294530484bdbd6b9b45fd1c98';
 
 let options = {
   ABI,
-  constractAddress,
+  CONTRACT_ADDRESS,
   WEB3_CDN_URL: 'https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js'
 };
 
