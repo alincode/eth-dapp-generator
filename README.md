@@ -11,7 +11,7 @@ npm i eth-dapp-generator --save
 **Example**
 
 ```
-const app = require('./src/index');
+const generator = require('./src/index');
 
 const ABI = [{
     "constant": false,
@@ -48,8 +48,8 @@ let options = {
 
 // options.WEB3_CDN_URL = 'https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js';
 
-app.getSourceCode(options);
-app.generateHtml(options);
+generator.getSourceCode(options);
+generator.generateHtml(options);
 ```
 
 **Test**

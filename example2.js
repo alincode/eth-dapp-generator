@@ -1,4 +1,4 @@
-const app = require('./lib/index');
+const generator = require('./lib/index');
 
 const ABI = [{
     "constant": true,
@@ -57,5 +57,5 @@ let object = {
   constractAddress
 };
 
-app.getSourceCode(object);
-app.generateHtml(object);
+generator.getSourceCode(object);
+generator.generateHtml(object);

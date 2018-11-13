@@ -1,5 +1,5 @@
 const assert = require('assert');
-const app = require('../lib/index');
+const generator = require('../lib/index');
 
 const ABI = [{
     "constant": true,
@@ -63,13 +63,13 @@ describe('test', () => {
 
   it('generateHtml', () => {
     assert.doesNotThrow(() => {
-      app.generateHtml(options);
+      generator.generateHtml(options);
     }, Error);
   });
 
   it('getSourceCode', () => {
     assert.doesNotThrow(() => {
-      app.getSourceCode(options)
+      generator.getSourceCode(options)
     }, Error);
   });
 
