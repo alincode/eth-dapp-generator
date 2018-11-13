@@ -10,10 +10,10 @@
   <h1>Hello World DApp</h1>
     
     <div style ="margin-top:10px;">
-      <input type="text" id="setName"/> <a href="#" id="setNameClick" class="btn btn-primary">setName</a>
+      <input type="text" id="setName__name"/> <a href="#" id="setNameClick" class="btn btn-primary">setName</a>
     </div> 
     <div style ="margin-top:10px;">
-      <input type="text" id="setName2"/> <a href="#" id="setName2Click" class="btn btn-primary">setName2</a>
+      <input type="text" id="setName2__name"/> <a href="#" id="setName2Click" class="btn btn-primary">setName2</a>
     </div>
     <div id="result"></div>
     <script src ="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js"></script>
@@ -44,8 +44,8 @@
       // ===== DOM Event =====
       
       async function setName(event) {
-        let inputData = document.getElementById("setName").value;
-        let data = await myContract.methods.setName(inputData).send({
+        let _name = document.getElementById("setName__name").value;
+        let data = await myContract.methods.setName(_name).send({
           from: web3.eth.defaultAccount
         }).then(values => {
           render();
@@ -55,8 +55,8 @@
       document.getElementById("setNameClick").addEventListener("click", setName);
    
       async function setName2(event) {
-        let inputData = document.getElementById("setName2").value;
-        let data = await myContract.methods.setName2(inputData).send({
+        let _name = document.getElementById("setName2__name").value;
+        let data = await myContract.methods.setName2(_name).send({
           from: web3.eth.defaultAccount
         }).then(values => {
           render();
@@ -78,7 +78,10 @@
       }
   
       function render() {
+        
         getName();
+        getName2();
+       
       }
 
       window.onload = function () {
