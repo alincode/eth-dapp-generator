@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "dev": "live-server",
-    "test": "mocha"
+    "test": "mocha",
+    "release": "rm -rf package-lock.json && npm version minor && npm publish",
+    "patch": "rm -rf package-lock.json && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
