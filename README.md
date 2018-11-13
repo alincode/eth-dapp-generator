@@ -41,15 +41,15 @@ const ABI = [{
 
 const constractAddress = '0x829af434f0a8934a431338c1a532abdc8d2c7dfc';
 
-let object = {
+let options = {
   ABI,
   constractAddress
 };
 
-// object.WEB3_CDN_URL = 'https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js';
+// options.WEB3_CDN_URL = 'https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js';
 
-app.getSourceCode(object);
-app.generateHtml(object);
+app.getSourceCode(options);
+app.generateHtml(options);
 ```
 
 **Test**
