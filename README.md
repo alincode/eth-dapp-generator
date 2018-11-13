@@ -11,7 +11,7 @@ npm i eth-dapp-generator --save
 **Example**
 
 ```
-const generator = require('./src/index');
+const generator = require('eth-dapp-generator');
 
 const ABI = [{
     "constant": false,
@@ -39,16 +39,14 @@ const ABI = [{
   }
 ];
 
-const constractAddress = '0x829af434f0a8934a431338c1a532abdc8d2c7dfc';
+const CONTRACT_ADDRESS = '0x829af434f0a8934a431338c1a532abdc8d2c7dfc';
 
 let options = {
   ABI,
-  constractAddress
+  CONTRACT_ADDRESS
 };
 
-// options.WEB3_CDN_URL = 'https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0/dist/web3.min.js';
-
-generator.getSourceCode(options);
+// generator.getSourceCode(options);
 generator.generateHtml(options);
 ```
 

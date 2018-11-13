@@ -50,12 +50,12 @@ const ABI = [{
   }
 ]
 
-const constractAddress = '0x353df9459c6d62d294530484bdbd6b9b45fd1c98';
+const CONTRACT_ADDRESS = '0x353df9459c6d62d294530484bdbd6b9b45fd1c98';
 
-let object = {
+let options = {
   ABI,
-  constractAddress
+  CONTRACT_ADDRESS
 };
 
-generator.getSourceCode(object);
-generator.generateHtml(object);
+generator.getSourceCode(options);
+generator.generateHtml(options);
