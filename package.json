@@ -1,0 +1,29 @@
+{
+  "name": "eth-dapp-generator",
+  "version": "0.0.0",
+  "description": "Ethereum DApp generator",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "live-server",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alincode/eth-dapp-generator.git"
+  },
+  "keywords": [],
+  "author": "alincode <alincode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alincode/eth-dapp-generator/issues"
+  },
+  "homepage": "https://github.com/alincode/eth-dapp-generator#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "nanohtml": "^1.2.6"
+  }
+}
